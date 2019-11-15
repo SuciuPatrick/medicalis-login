@@ -1,0 +1,19 @@
+<!-- templates/profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="notification is-danger">
+            {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+<h1 class="title">
+  Welcome, {{ name }}!
+</h1>
+<a href="{{ url_for('auth.change_password') }}"><button type="button" class="btn btn-primary">Change password</button></a>
+{% endblock %}
